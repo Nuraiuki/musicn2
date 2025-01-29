@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Musicn - Login</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<nav>
+    <a href="/">Home</a>
+    <a href="/register">Register</a>
+    <a href="/login">Login</a>
+</nav>
+
+<h1>Login</h1>
+
+<form action="/login" method="post">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="submit">Login</button>
+</form>
+
+<p th:if="${param.error}" style="color: red;">Invalid username or password</p>
+<p th:if="${param.logout}" style="color: green;">You have been logged out successfully.</p>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News Details</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<nav>
+    <a href="/">Home</a>
+    <a href="/news">News</a>
+    <a th:if="${#authorization.expression('isAuthenticated()')}" href="/logout">Logout</a>
+    <a th:unless="${#authorization.expression('isAuthenticated()')}" href="/login">Login</a>
+</nav>
+
+<h1 th:text="${news.title}"></h1>
+<p th:text="${news.content}"></p>
+
+<!-- Like Button (Only for Logged-in Users) -->
+<form th:if="${#authorization.expression('isAuthenticated()')}" th:action="@{/news/like/{id}(id=${news.id})}" method="post">
+    <button type="submit">❤️ Like</button>
+</form>
+
+<p>Likes: <span th:text="${news.likesCount}"></span></p>
+
+</body>
+</html>

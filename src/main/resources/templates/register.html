@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Musicn - Register</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<nav>
+    <a href="/">Home</a>
+    <a href="/register">Register</a>
+    <a href="/login">Login</a>
+</nav>
+
+<h1>Create an Account</h1>
+
+<form action="/register" method="post">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    <label for="email">email:</label>
+    <input type="text" id="email" name="email" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="submit">Register</button>
+</form>
+
+<p th:text="${message}" style="color: red;"></p>
+
+</body>
+</html>

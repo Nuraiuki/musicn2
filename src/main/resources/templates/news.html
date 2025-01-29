@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music News</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<nav>
+    <a href="/">Home</a>
+    <a href="/news">News</a>
+    <a href="/register">Register</a>
+    <a href="/login">Login</a>
+</nav>
+
+<h1>Latest Music News</h1>
+
+<div class="news-container">
+    <div th:each="news : ${newsList}" class="news-card">
+        <h3 th:text="${news.title}"></h3>
+        <p th:text="${#strings.abbreviate(news.content, 100)}"></p>
+        <a th:href="@{/news/{id}(id=${news.id})}" class="more-button">Read More</a>
+    </div>
+</div>
+
+</body>
+</html>
